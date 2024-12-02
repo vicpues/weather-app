@@ -1,0 +1,13 @@
+{
+    "trailingComma": "all",
+    "singleQuote": false,
+    "tabWidth": 4,
+    "overrides": [
+        {
+            "files": ["*.{css,scss,sass}", "*.html"],
+            "options": {
+                "tabWidth": 2
+            }
+        }
+    ]
+}
