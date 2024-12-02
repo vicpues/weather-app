@@ -6,15 +6,105 @@
     <title>Cloudee &#x26C8;&#xFE0F; Weather app</title>
   </head>
   <body>
-    <form action="">
-      <label for="query"></label>
-      <input
-        type="search"
-        id="query"
-        placeholder="e.g: Washingon DC"
-        required
-      />
-      <button type="submit">Search</button>
-    </form>
+    <header><h1>Cloudee weather app</h1></header>
+    <main id="app">
+      <search>
+        <form action="" id="location-search">
+          <label for="query"></label>
+          <input
+            type="search"
+            id="query"
+            name="query"
+            placeholder="e.g: Washingon DC"
+            required
+          />
+          <button type="submit">Search</button>
+        </form>
+      </search>
+      <section id="cards-container">
+        <article class="weather-card">
+          <h3 class="location-info"></h3>
+          <figure>
+            <img
+              class="card-picture"
+              src="./assets/pictures/ellipsis.svg"
+              alt="Pick a location first"
+              height="120"
+              width="120"
+            />
+            <figcaption class="card-description"></figcaption>
+          </figure>
+          <ul class="data-list temperature">
+            <li class="data-item">
+              <img
+                src="./assets/icons/temperature.svg"
+                alt="Temperature"
+                class="data-icon"
+                height="16"
+                width="16"
+              />
+              <h4 class="data-title">Temperature</h4>
+              <p class="data-text"></p>
+            </li>
+            <li class="data-item cloud-cover">
+              <img
+                src="./assets/icons/cloud-cover.svg"
+                alt="Cloud cover"
+                class="data-icon"
+                height="16"
+                width="16"
+              />
+              <h4 class="data-title">Cloud cover</h4>
+              <p class="data-text"></p>
+            </li>
+            <li class="data-item wind">
+              <img
+                src="./assets/icons/wind.svg"
+                alt="Wind"
+                class="data-icon"
+                height="16"
+                width="16"
+              />
+              <h4 class="data-title">Wind</h4>
+              <p class="data-text"></p>
+            </li>
+            <li class="data-item rain">
+              <img
+                src="./assets/icons/rain.svg"
+                alt="Rain"
+                class="data-icon"
+                height="16"
+                width="16"
+              />
+              <h4 class="data-title">Rain</h4>
+              <p class="data-text"></p>
+            </li>
+            <li class="data-item snow">
+              <img
+                src="./assets/icons/snow.svg"
+                alt="Snow"
+                class="data-icon"
+                height="16"
+                width="16"
+              />
+              <h4 class="data-title">Snow</h4>
+              <p class="data-text"></p>
+            </li>
+            <li class="data-item uv-index">
+              <img
+                src="./assets/icons/uv-index.svg"
+                alt="UV Index"
+                class="data-icon"
+                height="16"
+                width="16"
+              />
+              <h4 class="data-title">UV Index</h4>
+              <p class="data-text"></p>
+            </li>
+          </ul>
+        </article>
+      </section>
+    </main>
+    <footer></footer>
   </body>
 </html>

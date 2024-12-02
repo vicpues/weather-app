@@ -1,7 +1,7 @@
--   [_] HTML skeleton
+-   [x] HTML skeleton
 
     -   [x] Search form
-    -   [_] Info display (img, place and data)
+    -   [x] Info display (img, place and data)
 
 -   [_] Functionality
 
