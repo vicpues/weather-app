@@ -14,11 +14,13 @@
 -   [_] Styling
 
     -   [_] General styling
+    -   [_] Data icons
     -   [_] Page icon
 
 -   [_] Tying it all together
 
     -   [_] Change img source to reflect weather
+    -   [_] Use sunset time to determine wether to use moon or day picture
     -   [_] Add animated loading circle while data is being fetched
 
 -   [_] Extras
