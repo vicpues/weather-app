@@ -5,8 +5,8 @@
 
 -   [_] Functionality
 
-    -   [_] Function that takes in a search query and returns weather data
-    -   [_] Function that extracts the necessary data into a json
+    -   [x] Function that takes in a search query and returns weather data
+    -   [x] Function that extracts the necessary data into a json
     -   [_] Html form listener
     -   [_] Function that formats form data into usable object
     -   [_] Function that puts data into html
