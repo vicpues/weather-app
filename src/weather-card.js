@@ -6,6 +6,7 @@
 export default function updateWeatherCard(cardElement, data, units) {
     const dom = cacheDom(cardElement);
     dom.location.textContent = data.location;
+    dom.time.textContent = `At ${data.timeHour}`;
     dom.description.textContent = data.description;
     dom.temperature.textContent = `${data.tempCelsius}ºC`;
     dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
@@ -23,6 +24,7 @@ function cacheDom(cardElement) {
     const dom = {};
     const selectors = {
         location: "h3.location-info",
+        time: "h4.time-info",
         picture: "img.card-picture",
         description: "figcaption.card-description",
         temperature: "li.temperature p.data-text",
