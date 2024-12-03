@@ -43,3 +43,17 @@ function updateTextFields(dom, data, units) {
     dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
     dom.uvIndex.textContent = `${data.uvIndex}`;
 }
+
+const dataFormatFunctions = {
+    location(data, units) {},
+    time(data, units) {},
+    description(data, units) {},
+    temperature(data, units) {},
+    cloudCover(data, units) {},
+    wind(data, units) {},
+    rain(data, units) {},
+    snow(data, units) {},
+    uvIndex(data, units) {},
+};
+
+const unitConversionFunctions = {};
