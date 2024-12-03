@@ -33,7 +33,7 @@ function cacheDom(cardElement) {
 }
 
 function updateTextFields(dom, data, units) {
-    dom.location.textContent = data.location;
+    dom.location.textContent = dataFormatFunctions.location(data, units);
     dom.time.textContent = `At ${data.timeHour}`;
     dom.description.textContent = data.description;
     dom.temperature.textContent = `${data.tempCelsius}ºC`;
@@ -45,7 +45,9 @@ function updateTextFields(dom, data, units) {
 }
 
 const dataFormatFunctions = {
-    location(data, units) {},
+    location(data, units) {
+        return data.location
+    },
     time(data, units) {},
     description(data, units) {},
     temperature(data, units) {},
