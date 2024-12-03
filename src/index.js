@@ -20,4 +20,4 @@ const exampleData = {
 };
 
 const weatherCard = document.querySelector(".weather-card");
-updateWeatherCard(weatherCard, exampleData, "metric");
+updateWeatherCard(weatherCard, exampleData, "us");

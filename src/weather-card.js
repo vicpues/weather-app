@@ -3,10 +3,15 @@
  * @param {Object} data
  * @param {string} units Either "metric" or "us"
  */
-export default function updateWeatherCard(cardElement, data, units) {
+export default function updateWeatherCard(cardElement, data, userUnits) {
+    units = userUnits;
     const dom = cacheDom(cardElement);
-    updateTextFields(dom, data, units);
+    updateTextFields(dom, data);
 }
+
+let units;
+const METRIC = "metric";
+const US = "us";
 
 /**
  * @param {Element} cardElement
@@ -32,9 +37,9 @@ function cacheDom(cardElement) {
     return dom;
 }
 
-function updateTextFields(dom, data, units) {
-    dom.location.textContent = dataFormatFunctions.location(data, units);
-    dom.time.textContent = `At ${data.timeHour}`;
+function updateTextFields(dom, data) {
+    dom.location.textContent = textFormatFunctions.location(data);
+    dom.time.textContent = textFormatFunctions.time(data);
     dom.description.textContent = data.description;
     dom.temperature.textContent = `${data.tempCelsius}ºC`;
     dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
@@ -44,11 +49,16 @@ function updateTextFields(dom, data, units) {
     dom.uvIndex.textContent = `${data.uvIndex}`;
 }
 
-const dataFormatFunctions = {
-    location(data, units) {
+const textFormatFunctions = {
+    location(data) {
         return data.location;
     },
-    time(data, units) {},
+    time(data, units) {
+        const timeHms = data.timeHour;
+        const hours = Number(timeHms.slice(0, 2));
+        const minutes = Number(timeHms.slice(3, 5));
+        return `At ${unitConversions.time(hours, minutes)}`;
+    },
     description(data, units) {},
     temperature(data, units) {},
     cloudCover(data, units) {},
@@ -58,4 +68,15 @@ const dataFormatFunctions = {
     uvIndex(data, units) {},
 };
 
-const unitConversionFunctions = {};
+const unitConversions = {
+    time(hours, minutes) {
+        if (units === METRIC) {
+            return `${hours}:${minutes}`;
+        }
+        if (units === US) {
+            const suffix = hours <= 13 ? "am" : "pm";
+            const usHours = hours <= 13 ? hours : (hours - 12);
+            return `${usHours}:${minutes} ${suffix}`
+        }
+    },
+};
