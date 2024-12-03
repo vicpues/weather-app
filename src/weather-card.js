@@ -5,15 +5,7 @@
  */
 export default function updateWeatherCard(cardElement, data, units) {
     const dom = cacheDom(cardElement);
-    dom.location.textContent = data.location;
-    dom.time.textContent = `At ${data.timeHour}`;
-    dom.description.textContent = data.description;
-    dom.temperature.textContent = `${data.tempCelsius}ºC`;
-    dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
-    dom.wind.textContent = `${data.windKmh} Km/h`;
-    dom.rain.textContent = `${data.precipProbPercent}% of ${data.precipMilimeters}mm`;
-    dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
-    dom.uvIndex.textContent = `${data.uvIndex}`;
+    updateTextFields(dom, data, units);
 }
 
 /**
@@ -38,4 +30,16 @@ function cacheDom(cardElement) {
         dom[property] = cardElement.querySelector(selector);
     }
     return dom;
+}
+
+function updateTextFields(dom, data, units) {
+    dom.location.textContent = data.location;
+    dom.time.textContent = `At ${data.timeHour}`;
+    dom.description.textContent = data.description;
+    dom.temperature.textContent = `${data.tempCelsius}ºC`;
+    dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
+    dom.wind.textContent = `${data.windKmh} Km/h`;
+    dom.rain.textContent = `${data.precipProbPercent}% of ${data.precipMilimeters}mm`;
+    dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
+    dom.uvIndex.textContent = `${data.uvIndex}`;
 }
