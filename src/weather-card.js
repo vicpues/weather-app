@@ -53,19 +53,19 @@ const textFormatFunctions = {
     location(data) {
         return data.location;
     },
-    time(data, units) {
+    time(data) {
         const timeHms = data.timeHour;
         const hours = Number(timeHms.slice(0, 2));
         const minutes = Number(timeHms.slice(3, 5));
         return `At ${unitConversions.time(hours, minutes)}`;
     },
-    description(data, units) {},
-    temperature(data, units) {},
-    cloudCover(data, units) {},
-    wind(data, units) {},
-    rain(data, units) {},
-    snow(data, units) {},
-    uvIndex(data, units) {},
+    description(data) {},
+    temperature(data) {},
+    cloudCover(data) {},
+    wind(data) {},
+    rain(data) {},
+    snow(data) {},
+    uvIndex(data) {},
 };
 
 const unitConversions = {
