@@ -7,7 +7,7 @@
  * cloudCoverPercent: number,
  * windKmh: number,
  * windDegrees: number,
- * precipMilimiters: number,
+ * precipMilimeters: number,
  * precipProbPercent: number
  * snowDepthCentimeters: number,
  * uvIndex: number,
