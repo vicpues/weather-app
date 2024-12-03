@@ -46,7 +46,7 @@ function updateTextFields(dom, data, units) {
 
 const dataFormatFunctions = {
     location(data, units) {
-        return data.location
+        return data.location;
     },
     time(data, units) {},
     description(data, units) {},
