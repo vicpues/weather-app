@@ -2,22 +2,33 @@ import "./styles/main.css";
 import getWeatherData from "./data-fetching";
 import updateWeatherCard from "./weather-card";
 
-const exampleData = {
-    location: "Madrid, Comunidad de Madrid, España",
-    description: "Overcast",
-    tempCelsius: 15.3,
-    cloudCoverPercent: 100,
-    windKmh: 7.9,
-    windDegrees: 171,
-    precipMilimeters: 0,
-    precipProbPercent: 0,
-    snowDepthCentimeters: 0,
-    uvIndex: 4,
-    timeHour: "15:15:00",
-    timeEpoch: 1733235300,
-    sunriseEpoch: 1733210463,
-    sunsetEpoch: 1733244502,
-};
+// State variables
+let units = "us";
+let data;
 
-const weatherCard = document.querySelector(".weather-card");
-updateWeatherCard(weatherCard, exampleData, "us");
+// Cache dom
+const dom = cacheDom();
+
+// Bind events
+dom.form.addEventListener("submit", searchSubmitHandler);
+
+function cacheDom() {
+    return {
+        form: document.querySelector("form#location-search"),
+    };
+}
+
+/**@param {SubmitEvent} event */
+async function searchSubmitHandler(event) {
+    try {
+        event.preventDefault();
+        const card = document.querySelector("article.weather-card");
+        const formData = new FormData(dom.form);
+        data = await getWeatherData(formData.get("query"));
+        updateWeatherCard(card, data, units);
+    } catch (error) {
+        const errorNotification = "There was a problem fetching weather data";
+        console.error(errorNotification, error);
+        alert(errorNotification);
+    }
+}

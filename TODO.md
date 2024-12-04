@@ -3,11 +3,11 @@
     -   [x] Search form
     -   [x] Info display (img, place and data)
 
--   [_] Functionality
+-   [x] Functionality
 
     -   [x] Function that takes in a search query and returns weather data
     -   [x] Function that extracts the necessary data into a json
-    -   [_] Html form listener
+    -   [x] Html form listener
     -   [x] Function that formats form data into usable object
     -   [x] Function that puts data into html
 
