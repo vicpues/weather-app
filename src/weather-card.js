@@ -45,7 +45,7 @@ function updateTextFields() {
     dom.time.textContent = textFormatFunctions.time();
     dom.description.textContent = data.description;
     dom.temperature.textContent = textFormatFunctions.temperature();
-    dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
+    dom.cloudCover.textContent = `${data.cloudCoverPercent} %`;
     dom.wind.textContent = `${data.windKmh} Km/h`;
     dom.rain.textContent = `${data.precipProbPercent}% of ${data.precipMilimeters}mm`;
     dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
@@ -77,7 +77,6 @@ const textFormatFunctions = {
             return `${fahrenheit} ºF`;
         }
     },
-    cloudCover() {},
     wind() {},
     rain() {},
     snow() {},
