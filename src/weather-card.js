@@ -47,7 +47,7 @@ function updateTextFields() {
     dom.temperature.textContent = textFormatFunctions.temperature();
     dom.cloudCover.textContent = `${data.cloudCoverPercent} %`;
     dom.wind.textContent = textFormatFunctions.wind();
-    dom.rain.textContent = `${data.precipProbPercent}% of ${data.precipMilimeters}mm`;
+    dom.rain.textContent = textFormatFunctions.rain();
     dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
     dom.uvIndex.textContent = `${data.uvIndex}`;
 }
@@ -101,7 +101,18 @@ const textFormatFunctions = {
             return `${windMph} mph ${windArr[1]}`;
         }
     },
-    rain() {},
+    rain() {
+        const percentString = `${Math.ceil(data.precipProbPercent)} %`;
+        let precipMm = data.precipMilimeters;
+        if (units === METRIC) {
+            precipMm = Math.ceil(precipMm);
+            return `${percentString} of ${precipMm} mm`;
+        }
+        if (units === US) {
+            let precipInches = Math.ceil(precipMm / 25.4);
+            return `${percentString} of ${precipInches} in.`;
+        }
+    },
     snow() {},
     uvIndex() {},
 };
