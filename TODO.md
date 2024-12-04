@@ -9,7 +9,7 @@
     -   [x] Function that extracts the necessary data into a json
     -   [_] Html form listener
     -   [x] Function that formats form data into usable object
-    -   [_] Function that puts data into html
+    -   [x] Function that puts data into html
 
 -   [_] Styling
 
@@ -26,6 +26,7 @@
 -   [_] Extras
 
     -   [_] Switch between ºC and ºF
+    -   [_] Store latest query and preferred units in localStorage
     -   [_] Dark mode media query
     -   [_] Screen size media query and formatting
     -   [_] Test on different devices
