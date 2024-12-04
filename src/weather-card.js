@@ -42,17 +42,17 @@ function cacheDom(cardElement) {
 
 function updateTextFields() {
     dom.location.textContent = data.location;
-    dom.time.textContent = textFormatFunctions.time();
+    dom.time.textContent = formatFunctions.time();
     dom.description.textContent = data.description;
-    dom.temperature.textContent = textFormatFunctions.temperature();
+    dom.temperature.textContent = formatFunctions.temperature();
     dom.cloudCover.textContent = `${data.cloudCoverPercent} %`;
-    dom.wind.textContent = textFormatFunctions.wind();
-    dom.rain.textContent = textFormatFunctions.rain();
-    dom.snow.textContent = textFormatFunctions.snow();
+    dom.wind.textContent = formatFunctions.wind();
+    dom.rain.textContent = formatFunctions.rain();
+    dom.snow.textContent = formatFunctions.snow();
     dom.uvIndex.textContent = data.uvIndex;
 }
 
-const textFormatFunctions = {
+const formatFunctions = {
     time() {
         const timeHms = data.timeHour;
         const hours = Number(timeHms.slice(0, 2));
