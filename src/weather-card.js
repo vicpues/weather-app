@@ -4,7 +4,7 @@
  * @param {string} units Either "metric" or "us"
  */
 export default function updateWeatherCard(cardElement, userData, userUnits) {
-    dom = cacheDom(cardElement)
+    dom = cacheDom(cardElement);
     data = userData;
     units = userUnits;
     updateTextFields();
@@ -44,7 +44,7 @@ function updateTextFields() {
     dom.location.textContent = data.location;
     dom.time.textContent = textFormatFunctions.time();
     dom.description.textContent = data.description;
-    dom.temperature.textContent = `${data.tempCelsius}ºC`;
+    dom.temperature.textContent = textFormatFunctions.temperature();
     dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
     dom.wind.textContent = `${data.windKmh} Km/h`;
     dom.rain.textContent = `${data.precipProbPercent}% of ${data.precipMilimeters}mm`;
@@ -59,7 +59,9 @@ const textFormatFunctions = {
         const minutes = Number(timeHms.slice(3, 5));
         return `At ${unitConversions.time(hours, minutes)}`;
     },
-    temperature() {},
+    temperature() {
+        return unitConversions.temperature(data.tempCelsius);
+    },
     cloudCover() {},
     wind() {},
     rain() {},
@@ -74,8 +76,19 @@ const unitConversions = {
         }
         if (units === US) {
             const suffix = hours <= 13 ? "am" : "pm";
-            const usHours = hours <= 13 ? hours : (hours - 12);
-            return `${usHours}:${minutes} ${suffix}`
+            const usHours = hours <= 13 ? hours : hours - 12;
+            return `${usHours}:${minutes} ${suffix}`;
+        }
+    },
+    temperature(celsius) {
+        if (units === METRIC) {
+            celsius = Math.floor(celsius);
+            return `${celsius} ºC`;
+        }
+        if (units === US) {
+            let fahrenheit = celsius * 1.8 + 32;
+            fahrenheit = Math.floor(fahrenheit);
+            return `${fahrenheit} ºF`
         }
     },
 };
