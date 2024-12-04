@@ -56,7 +56,7 @@ const formatFunctions = {
     time() {
         const timeHms = data.timeHour;
         const hours = Number(timeHms.slice(0, 2));
-        const minutes = Number(timeHms.slice(3, 5));
+        const minutes = timeHms.slice(3, 5);
         if (units === METRIC) {
             return `At ${hours}:${minutes}`;
         }
