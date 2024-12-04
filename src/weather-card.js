@@ -114,14 +114,14 @@ const textFormatFunctions = {
         }
     },
     snow() {
-        let snowCm = data.snowDepthCentimeters
+        let snowCm = data.snowDepthCentimeters;
         if (units === METRIC) {
-            snowCm = Math.ceil(snowCm)
-            return `${snowCm} cm`
+            snowCm = Math.ceil(snowCm);
+            return `${snowCm} cm`;
         }
         if (units === US) {
-            let snowInches = Math.ceil(snowCm / 2.54)
-            return `${snowInches} in.`
+            let snowInches = Math.ceil(snowCm / 2.54);
+            return `${snowInches} in.`;
         }
     },
 };
