@@ -48,8 +48,8 @@ function updateTextFields() {
     dom.cloudCover.textContent = `${data.cloudCoverPercent} %`;
     dom.wind.textContent = textFormatFunctions.wind();
     dom.rain.textContent = textFormatFunctions.rain();
-    dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
-    dom.uvIndex.textContent = `${data.uvIndex}`;
+    dom.snow.textContent = textFormatFunctions.snow();
+    dom.uvIndex.textContent = data.uvIndex;
 }
 
 const textFormatFunctions = {
@@ -113,6 +113,15 @@ const textFormatFunctions = {
             return `${percentString} of ${precipInches} in.`;
         }
     },
-    snow() {},
-    uvIndex() {},
+    snow() {
+        let snowCm = data.snowDepthCentimeters
+        if (units === METRIC) {
+            snowCm = Math.ceil(snowCm)
+            return `${snowCm} cm`
+        }
+        if (units === US) {
+            let snowInches = Math.ceil(snowCm / 2.54)
+            return `${snowInches} in.`
+        }
+    },
 };
