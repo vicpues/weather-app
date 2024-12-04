@@ -46,7 +46,7 @@ function updateTextFields() {
     dom.description.textContent = data.description;
     dom.temperature.textContent = textFormatFunctions.temperature();
     dom.cloudCover.textContent = `${data.cloudCoverPercent} %`;
-    dom.wind.textContent = `${data.windKmh} Km/h`;
+    dom.wind.textContent = textFormatFunctions.wind();
     dom.rain.textContent = `${data.precipProbPercent}% of ${data.precipMilimeters}mm`;
     dom.snow.textContent = `${data.snowDepthCentimeters}cm`;
     dom.uvIndex.textContent = `${data.uvIndex}`;
@@ -77,7 +77,30 @@ const textFormatFunctions = {
             return `${fahrenheit} ºF`;
         }
     },
-    wind() {},
+    wind() {
+        let windKmh = data.windKmh;
+        let windDegrees = data.windDegrees;
+        let windLookup = [
+            [23, "N"],
+            [68, "NE"],
+            [113, "E"],
+            [158, "SE"],
+            [203, "S"],
+            [248, "SW"],
+            [293, "W"],
+            [338, "NW"],
+            [360, "N"],
+        ];
+        const windArr = windLookup.find((arr) => arr[0] >= windDegrees);
+        if (units === METRIC) {
+            windKmh = Math.floor(windKmh);
+            return `${windKmh} Km/h ${windArr[1]}`;
+        }
+        if (units === US) {
+            let windMph = Math.floor(windKmh * 0.621371);
+            return `${windMph} mph ${windArr[1]}`;
+        }
+    },
     rain() {},
     snow() {},
     uvIndex() {},
