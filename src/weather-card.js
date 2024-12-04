@@ -57,38 +57,29 @@ const textFormatFunctions = {
         const timeHms = data.timeHour;
         const hours = Number(timeHms.slice(0, 2));
         const minutes = Number(timeHms.slice(3, 5));
-        return `At ${unitConversions.time(hours, minutes)}`;
+        if (units === METRIC) {
+            return `At ${hours}:${minutes}`;
+        }
+        if (units === US) {
+            const suffix = hours <= 13 ? "am" : "pm";
+            const usHours = hours <= 13 ? hours : hours - 12;
+            return `At ${usHours}:${minutes} ${suffix}`;
+        }
     },
     temperature() {
-        return unitConversions.temperature(data.tempCelsius);
+        let celsius = data.tempCelsius;
+        if (units === METRIC) {
+            celsius = Math.floor(celsius);
+            return `${celsius} ºC`;
+        }
+        if (units === US) {
+            let fahrenheit = Math.floor(celsius * 1.8 + 32);
+            return `${fahrenheit} ºF`;
+        }
     },
     cloudCover() {},
     wind() {},
     rain() {},
     snow() {},
     uvIndex() {},
-};
-
-const unitConversions = {
-    time(hours, minutes) {
-        if (units === METRIC) {
-            return `${hours}:${minutes}`;
-        }
-        if (units === US) {
-            const suffix = hours <= 13 ? "am" : "pm";
-            const usHours = hours <= 13 ? hours : hours - 12;
-            return `${usHours}:${minutes} ${suffix}`;
-        }
-    },
-    temperature(celsius) {
-        if (units === METRIC) {
-            celsius = Math.floor(celsius);
-            return `${celsius} ºC`;
-        }
-        if (units === US) {
-            let fahrenheit = celsius * 1.8 + 32;
-            fahrenheit = Math.floor(fahrenheit);
-            return `${fahrenheit} ºF`
-        }
-    },
 };
