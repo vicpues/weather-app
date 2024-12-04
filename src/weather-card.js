@@ -41,8 +41,8 @@ function cacheDom(cardElement) {
 }
 
 function updateTextFields() {
-    dom.location.textContent = textFormatFunctions.location(data);
-    dom.time.textContent = textFormatFunctions.time(data);
+    dom.location.textContent = data.location;
+    dom.time.textContent = textFormatFunctions.time();
     dom.description.textContent = data.description;
     dom.temperature.textContent = `${data.tempCelsius}ºC`;
     dom.cloudCover.textContent = `${data.cloudCoverPercent}%`;
@@ -53,16 +53,12 @@ function updateTextFields() {
 }
 
 const textFormatFunctions = {
-    location() {
-        return data.location;
-    },
     time() {
         const timeHms = data.timeHour;
         const hours = Number(timeHms.slice(0, 2));
         const minutes = Number(timeHms.slice(3, 5));
         return `At ${unitConversions.time(hours, minutes)}`;
     },
-    description() {},
     temperature() {},
     cloudCover() {},
     wind() {},
