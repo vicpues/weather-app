@@ -3,12 +3,15 @@
  * @param {Object} data
  * @param {string} units Either "metric" or "us"
  */
-export default function updateWeatherCard(cardElement, data, userUnits) {
+export default function updateWeatherCard(cardElement, userData, userUnits) {
+    dom = cacheDom(cardElement)
+    data = userData;
     units = userUnits;
-    const dom = cacheDom(cardElement);
-    updateTextFields(dom, data);
+    updateTextFields();
 }
 
+let dom;
+let data;
 let units;
 const METRIC = "metric";
 const US = "us";
@@ -37,7 +40,7 @@ function cacheDom(cardElement) {
     return dom;
 }
 
-function updateTextFields(dom, data) {
+function updateTextFields() {
     dom.location.textContent = textFormatFunctions.location(data);
     dom.time.textContent = textFormatFunctions.time(data);
     dom.description.textContent = data.description;
@@ -50,22 +53,22 @@ function updateTextFields(dom, data) {
 }
 
 const textFormatFunctions = {
-    location(data) {
+    location() {
         return data.location;
     },
-    time(data) {
+    time() {
         const timeHms = data.timeHour;
         const hours = Number(timeHms.slice(0, 2));
         const minutes = Number(timeHms.slice(3, 5));
         return `At ${unitConversions.time(hours, minutes)}`;
     },
-    description(data) {},
-    temperature(data) {},
-    cloudCover(data) {},
-    wind(data) {},
-    rain(data) {},
-    snow(data) {},
-    uvIndex(data) {},
+    description() {},
+    temperature() {},
+    cloudCover() {},
+    wind() {},
+    rain() {},
+    snow() {},
+    uvIndex() {},
 };
 
 const unitConversions = {
