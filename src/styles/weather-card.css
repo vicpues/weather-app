@@ -1,2 +1,51 @@
 .weather-card {
+  width: 16rem;
+  background-color: #ffffff;
+  box-shadow: 0 0 1em #0000002f;
+  padding: 1em 0.5em;
+  border-radius: 1em;
+
+  .location-info,
+  .time-info {
+    text-align: center;
+  }
+
+  figure {
+    display: flex;
+    text-align: center;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  ul.data-list {
+    list-style: none;
+    margin-top: 1em;
+    padding: 0 0.5em 0 0.3em;
+  }
+
+  li.data-item {
+    display: flex;
+    padding: 0;
+
+    + li.data-item {
+      margin-top: 1em;
+    }
+  }
+
+  img.data-icon,
+  h4.data-title,
+  p.data-text {
+    display: inline;
+  }
+
+  img.data-icon {
+    --size: 1.6em;
+    height: var(--size);
+    width: var(--size);
+    margin-right: 0.4em;
+  }
+
+  p.data-text {
+    margin-left: auto;
+  }
 }
