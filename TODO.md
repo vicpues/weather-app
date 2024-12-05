@@ -14,6 +14,7 @@
 -   [_] Styling
 
     -   [_] General styling
+    -   [_] Custom fonts
     -   [_] Data icons
     -   [_] Page icon
 
