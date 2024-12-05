@@ -1,0 +1,61 @@
+:root {
+  --bg-light: #47bbe1;
+  --bg-dark: #205a54;
+  --highlight-light: #fdc567;
+  --highlight-dark: #caa52b;
+  --grey-dark: #1c2321;
+  --grey-midtone: #5e6572;
+  --grey-light: #eff6ff;
+}
+
+/* Layout */
+body {
+  background-color: var(--grey-light);
+}
+
+header,
+main,
+footer {
+  width: 100%;
+}
+
+/* Header */
+header {
+  display: flex;
+  justify-content: center;
+  padding: 1.5rem 0 1rem;
+  background-color: var(--bg-light);
+  color: var(--grey-light);
+}
+
+/* Search form */
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0 1rem;
+
+  > label {
+    margin-right: 0.6em;
+  }
+
+  #query,
+  button {
+    box-shadow: 0 0 1em #00000027;
+    height: 2.4em;
+    padding-inline: 1em;
+  }
+
+  #query {
+    border-top-left-radius: 1000px;
+    border-bottom-left-radius: 1000px;
+    border: none;
+  }
+
+  button {
+    border-top-right-radius: 1000px;
+    border-bottom-right-radius: 1000px;
+    border: none;
+    border-left: 1px solid var(--grey-midtone);
+  }
+}
