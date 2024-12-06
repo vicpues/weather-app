@@ -15,7 +15,7 @@
 
     -   [_] General styling
     -   [x] Custom fonts
-    -   [_] Data icons
+    -   [x] Data icons
     -   [_] Page icon
 
 -   [_] Tying it all together
