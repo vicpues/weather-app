@@ -11,9 +11,9 @@
     -   [x] Function that formats form data into usable object
     -   [x] Function that puts data into html
 
--   [_] Styling
+-   [x] Styling
 
-    -   [_] General styling
+    -   [x] General styling
     -   [x] Custom fonts
     -   [x] Data icons
     -   [x] Page icon
