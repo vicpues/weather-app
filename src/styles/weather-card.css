@@ -10,11 +10,17 @@
     text-align: center;
   }
 
+  .time-info {
+    margin-top: .5em;
+    color: var(--grey-midtone)
+  }
+
   figure {
     display: flex;
     text-align: center;
     flex-direction: column;
     align-items: center;
+    margin: 1em auto 1.5em;
   }
 
   ul.data-list {
@@ -36,6 +42,11 @@
   h4.data-title,
   p.data-text {
     display: inline;
+  }
+
+  figcaption.card-description {
+    margin-top: 1rem;
+    color: var(--grey-midtone);
   }
 
   img.data-icon {
