@@ -21,7 +21,7 @@
 -   [_] Tying it all together
 
     -   [x] Change img source to reflect weather
-    -   [_] Use sunset time to determine wether to use moon or day picture
+    -   [x] Use sunset time to determine wether to use moon or day picture
     -   [_] Add animated loading circle while data is being fetched
 
 -   [_] Extras
