@@ -53,9 +53,9 @@ function cacheDom(cardElement) {
 }
 
 function updateTextFields() {
-    const imgData = getImgData()
-    dom.picture.src = imgData.src
-    dom.picture.alt = imgData.alt
+    const imgData = getImgData();
+    dom.picture.src = imgData.src;
+    dom.picture.alt = imgData.alt;
     dom.location.textContent = data.location;
     dom.time.textContent = formatFunctions.time();
     dom.description.textContent = data.description;
@@ -144,43 +144,56 @@ const formatFunctions = {
 function getImgData() {
     let src;
     let alt;
-    const isNight = (data.timeEpoch > data.sunsetEpoch && data.timeEpoch < data.sunriseEpoch)
+    const isNight =
+        data.timeEpoch > data.sunsetEpoch && data.timeEpoch < data.sunriseEpoch;
     if (data.snowDepthCentimeters >= 10) {
-        src = imgSnowHeavy
-        alt = "A cloud with heavy snow"
+        src = imgSnowHeavy;
+        alt = "A cloud with heavy snow";
     } else if (data.snowDepthCentimeters > 0) {
-        src = imgSnowLight
-        alt = "A cloud with light snow"
-    } else if ((data.precipMilimeters > 10) || (data.precipMilimeters > 0 && isNight) || (data.precipMilimeters > 0 && data.cloudCoverPercent > 80)) {
-        src = imgRainHeavy
-        alt = "A rainy cloud"
+        src = imgSnowLight;
+        alt = "A cloud with light snow";
+    } else if (
+        data.precipMilimeters > 10 ||
+        (data.precipMilimeters > 0 && isNight) ||
+        (data.precipMilimeters > 0 && data.cloudCoverPercent > 80)
+    ) {
+        src = imgRainHeavy;
+        alt = "A rainy cloud";
     } else if (data.precipMilimeters > 0) {
-        src = imgRainDay
-        alt = "A rainy cloud with the sun peeking behind it"
+        src = imgRainDay;
+        alt = "A rainy cloud with the sun peeking behind it";
     } else if (data.windKmh > 50 && data.cloudCoverPercent > 50) {
-        src = imgStorm
-        alt = "A storm cloud with rain and lightning"
-    } else if ((data.tempCelsius < -10) || (data.tempCelsius < 0 && data.cloudCoverPercent < 25)) {
-        src = imgCold
-        alt = "A blue thermometer showing a low temperature with snowflakes next to it"
-    } else if ((data.tempCelsius > 37) || (data.tempCelsius > 32 && data.cloudCoverPercent < 25)) {
-        src = imgHot
-        alt = "A red thermometer showing a high temperature with a melting sun next to it"
+        src = imgStorm;
+        alt = "A storm cloud with rain and lightning";
+    } else if (
+        data.tempCelsius < -10 ||
+        (data.tempCelsius < 0 && data.cloudCoverPercent < 25)
+    ) {
+        src = imgCold;
+        alt =
+            "A blue thermometer showing a low temperature with snowflakes next to it";
+    } else if (
+        data.tempCelsius > 37 ||
+        (data.tempCelsius > 32 && data.cloudCoverPercent < 25)
+    ) {
+        src = imgHot;
+        alt =
+            "A red thermometer showing a high temperature with a melting sun next to it";
     } else if (data.cloudCoverPercent > 25 && isNight) {
-        src = imgCloudNight
-        alt = "A cloud with the moon and some stars peeking behind it"
+        src = imgCloudNight;
+        alt = "A cloud with the moon and some stars peeking behind it";
     } else if (data.cloudCoverPercent > 25) {
-        src = imgCloudDay
-        alt = "A cloud with the sun peeking behind it"
+        src = imgCloudDay;
+        alt = "A cloud with the sun peeking behind it";
     } else if (isNight) {
-        src = imgClearNight
-        alt = "A large crescent moon with a star next to it"
+        src = imgClearNight;
+        alt = "A large crescent moon with a star next to it";
     } else {
-        src = imgClearDay
-        alt = "A clear, bright sun"
+        src = imgClearDay;
+        alt = "A clear, bright sun";
     }
     return {
         src,
         alt,
-    }
+    };
 }

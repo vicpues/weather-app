@@ -11,8 +11,8 @@
   }
 
   .time-info {
-    margin-top: .5em;
-    color: var(--grey-midtone)
+    margin-top: 0.5em;
+    color: var(--grey-midtone);
   }
 
   figure {
