@@ -1,6 +1,6 @@
 .weather-card {
   width: 20rem;
-  background-color: #ffffff;
+  background-color: var(--grey-white);
   box-shadow: 0 0 1em #0000002f;
   padding: 1.5em 1em;
   border-radius: 1em;
