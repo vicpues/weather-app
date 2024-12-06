@@ -7,3 +7,5 @@
 -   Ellipsis picture from [Meteor Line Interface Icons](https://www.svgrepo.com/collection/meteor-line-interface-icons/), by [ShopWare](https://www.svgrepo.com/author/ShopWare/) at SVG Repo (MIT License)
 
 -   Data icons from [SVG Repo Weather Line Icons Collection](https://www.svgrepo.com/collection/weather-line-icons/), by [Yorlmar Campos](https://www.svgrepo.com/author/Yorlmar%20Campos/) at SVG Repo (CC Attribution License)
+
+-   Roboto web font from [Google Fonts](https://fonts.google.com/specimen/Roboto), designed by Christian Robertson (Apache License)
