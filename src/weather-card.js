@@ -10,6 +10,7 @@ import imgCloudNight from "./assets/pictures/cloudy-night.svg";
 import imgCloudDay from "./assets/pictures/cloudy-day.svg";
 import imgClearNight from "./assets/pictures/clear-night.svg";
 import imgClearDay from "./assets/pictures/clear-day.svg";
+import imgLoading from "./assets/pictures/loading.svg";
 
 /**
  * @param {Element} cardElement
@@ -20,6 +21,7 @@ export default function updateWeatherCard(cardElement, userData, userUnits) {
     dom = cacheDom(cardElement);
     data = userData;
     units = userUnits;
+    startLoadingAnimation();
     updateTextFields();
     updateImageAttributes();
 }
@@ -140,8 +142,14 @@ const formatFunctions = {
     },
 };
 
+function startLoadingAnimation() {
+    dom.picture.src = imgLoading;
+    dom.picture.classList.add("spin");
+}
+
 function updateImageAttributes() {
     const imgData = getImgData();
+    dom.picture.classList.remove("spin");
     dom.picture.src = imgData.src;
     dom.picture.alt = imgData.alt;
 }

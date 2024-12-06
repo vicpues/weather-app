@@ -36,6 +36,11 @@
     margin: 1em auto 1.5em;
   }
 
+  .spin {
+    transform-origin: center;
+    animation: spin 1s linear infinite;
+  }
+
   ul.data-list {
     list-style: none;
     margin-top: 1em;
@@ -71,5 +76,11 @@
 
   p.data-text {
     margin-left: auto;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
   }
 }
