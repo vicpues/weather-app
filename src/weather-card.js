@@ -21,6 +21,7 @@ export default function updateWeatherCard(cardElement, userData, userUnits) {
     dom = cacheDom(cardElement);
     data = userData;
     units = userUnits;
+    console.log(data);
     startLoadingAnimation();
     updateTextFields();
     updateImageAttributes();
@@ -158,7 +159,7 @@ function getImgData() {
     let src;
     let alt;
     const isNight =
-        data.timeEpoch > data.sunsetEpoch && data.timeEpoch < data.sunriseEpoch;
+        data.timeEpoch > data.sunsetEpoch || data.timeEpoch < data.sunriseEpoch;
     if (data.snowDepthCentimeters >= 10) {
         src = imgSnowHeavy;
         alt = "A cloud with heavy snow";
