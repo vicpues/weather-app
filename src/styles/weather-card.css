@@ -15,10 +15,10 @@
     height: calc(2em * var(--line-multiplier));
     line-height: calc(2em * var(--line-multiplier));
   }
-  
+
   .location-info {
-    display: inline-block;
     vertical-align: middle;
+    text-align: center;
     text-overflow: ellipsis;
     line-height: var(--line-multiplier);
   }

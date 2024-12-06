@@ -5,6 +5,7 @@ import imgRainDay from "./assets/pictures/rainy-day.svg";
 import imgStorm from "./assets/pictures/stormy.svg";
 import imgCold from "./assets/pictures/cold.svg";
 import imgHot from "./assets/pictures/hot.svg";
+import imgOvercast from "./assets/pictures/overcast.svg";
 import imgCloudNight from "./assets/pictures/cloudy-night.svg";
 import imgCloudDay from "./assets/pictures/cloudy-day.svg";
 import imgClearNight from "./assets/pictures/clear-night.svg";
@@ -183,6 +184,9 @@ function getImgData() {
         src = imgHot;
         alt =
             "A red thermometer showing a high temperature with a melting sun next to it";
+    } else if (data.cloudCoverPercent > 85) {
+        src = imgOvercast;
+        alt = "A group of overcast clouds";
     } else if (data.cloudCoverPercent > 25 && isNight) {
         src = imgCloudNight;
         alt = "A cloud with the moon and some stars peeking behind it";
