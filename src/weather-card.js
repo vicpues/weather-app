@@ -20,6 +20,7 @@ export default function updateWeatherCard(cardElement, userData, userUnits) {
     data = userData;
     units = userUnits;
     updateTextFields();
+    updateImageAttributes();
 }
 
 let dom;
@@ -53,9 +54,6 @@ function cacheDom(cardElement) {
 }
 
 function updateTextFields() {
-    const imgData = getImgData();
-    dom.picture.src = imgData.src;
-    dom.picture.alt = imgData.alt;
     dom.location.textContent = data.location;
     dom.time.textContent = formatFunctions.time();
     dom.description.textContent = data.description;
@@ -140,6 +138,12 @@ const formatFunctions = {
         }
     },
 };
+
+function updateImageAttributes() {
+    const imgData = getImgData();
+    dom.picture.src = imgData.src;
+    dom.picture.alt = imgData.alt;
+}
 
 function getImgData() {
     let src;
