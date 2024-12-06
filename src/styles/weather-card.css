@@ -10,6 +10,19 @@
     text-align: center;
   }
 
+  .location-container {
+    --line-multiplier: 1.2;
+    height: calc(2em * var(--line-multiplier));
+    line-height: calc(2em * var(--line-multiplier));
+  }
+  
+  .location-info {
+    display: inline-block;
+    vertical-align: middle;
+    text-overflow: ellipsis;
+    line-height: var(--line-multiplier);
+  }
+
   .time-info {
     margin-top: 0.5em;
     color: var(--grey-midtone);
