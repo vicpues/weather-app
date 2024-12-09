@@ -10,12 +10,12 @@ let data;
 const dom = cacheDom();
 
 // Bind events
-dom.form.addEventListener("submit", searchSubmitHandler);
+dom.locationForm.addEventListener("submit", searchSubmitHandler);
 dom.unitSwitch.addEventListener("click", unitSwitchHandler);
 
 function cacheDom() {
     return {
-        form: document.querySelector("form#location-search"),
+        locationForm: document.querySelector("form#location-search"),
         unitSwitch: document.querySelector("fieldset#units"),
     };
 }
@@ -25,7 +25,7 @@ async function searchSubmitHandler(event) {
     try {
         event.preventDefault();
         const card = document.querySelector("article.weather-card");
-        const formData = new FormData(dom.form);
+        const formData = new FormData(dom.locationForm);
         data = await getWeatherData(formData.get("query"));
         updateWeatherCard(card, data, units);
     } catch (error) {
