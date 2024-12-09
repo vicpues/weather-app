@@ -13,7 +13,7 @@ module.exports = merge(common, {
         },
         hot: true,
         compress: true,
-        port: 5500,
+        port: 9000,
         host: "0.0.0.0",
         open: {
             app: {
