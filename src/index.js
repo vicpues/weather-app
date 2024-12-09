@@ -3,7 +3,7 @@ import getWeatherData from "./data-fetching";
 import updateWeatherCard from "./weather-card";
 
 // State variables
-let units = "us";
+let units = getUnitsValue();
 let data;
 
 // Cache dom
@@ -11,10 +11,12 @@ const dom = cacheDom();
 
 // Bind events
 dom.form.addEventListener("submit", searchSubmitHandler);
+dom.unitSwitch.addEventListener("click", unitSwitchHandler);
 
 function cacheDom() {
     return {
         form: document.querySelector("form#location-search"),
+        unitSwitch: document.querySelector("fieldset#units"),
     };
 }
 
@@ -31,4 +33,16 @@ async function searchSubmitHandler(event) {
         console.error(errorNotification, error);
         alert(errorNotification);
     }
+}
+
+function unitSwitchHandler() {
+    units = getUnitsValue();
+    if (data) {
+        const card = document.querySelector("article.weather-card");
+        updateWeatherCard(card, data, units);
+    }
+}
+
+function getUnitsValue() {
+    return document.querySelector('input[name="units"]:checked').value;
 }
