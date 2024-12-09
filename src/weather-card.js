@@ -21,7 +21,6 @@ export default function updateWeatherCard(cardElement, userData, userUnits) {
     dom = cacheDom(cardElement);
     data = userData;
     units = userUnits;
-    console.log(data);
     startLoadingAnimation();
     updateTextFields();
     updateImageAttributes();
