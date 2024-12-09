@@ -16,6 +16,7 @@ dom.unitSwitch.addEventListener("click", unitSwitchHandler);
 function cacheDom() {
     return {
         locationForm: document.querySelector("form#location-search"),
+        weatherCard: document.querySelector("article.weather-card"),
         unitSwitch: document.querySelector("fieldset#units"),
     };
 }
@@ -24,7 +25,7 @@ function cacheDom() {
 async function searchSubmitHandler(event) {
     try {
         event.preventDefault();
-        const card = document.querySelector("article.weather-card");
+        const card = dom.weatherCard;
         const formData = new FormData(dom.locationForm);
         data = await getWeatherData(formData.get("query"));
         updateWeatherCard(card, data, units);
@@ -38,7 +39,7 @@ async function searchSubmitHandler(event) {
 function unitSwitchHandler() {
     units = getUnitsValue();
     if (data) {
-        const card = document.querySelector("article.weather-card");
+        const card = dom.weatherCard;
         updateWeatherCard(card, data, units);
     }
 }
