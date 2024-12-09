@@ -91,14 +91,58 @@ header {
   color: var(--grey-light);
 }
 
+/* Unit switch */
+#units {
+  border: none;
+  width: 10rem;
+  margin: 1.5rem auto;
+  padding: 0;
+  text-align: center;
+
+  input {
+    display: none;
+  }
+
+  > label {
+    padding-block: 0.5em;
+    background-color: var(--grey-white);
+    cursor: pointer;
+    box-shadow: 0 0 1em #00000027;
+    font-weight: bold;
+    transition: all 0.2s;
+
+    &:has(:checked) {
+      color: var(--grey-light);
+      background-color: var(--grey-dark);
+      cursor: default;
+    }
+
+    &:hover:not(:has(:checked)) {
+      box-shadow: 0 0 1em var(--highlight-light);
+    }
+  }
+
+  > :first-child {
+    padding-inline: 0.7em 0.5em;
+    border-top-left-radius: 1000px;
+    border-bottom-left-radius: 1000px;
+  }
+
+  > :last-child {
+    padding-inline: 0.5em 0.7em;
+    border-top-right-radius: 1000px;
+    border-bottom-right-radius: 1000px;
+  }
+}
+
 /* Search form */
-form {
+#location-search {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 2rem 0 1rem;
+  margin: 1rem 0 1rem;
 
-  > label {
+  label[for="query"] {
     margin-right: 0.6em;
   }
 
