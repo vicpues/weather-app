@@ -27,7 +27,7 @@
 -   [_] Extras
 
     -   [x] Switch between ºC and ºF
-    -   [_] Optimize svg size
+    -   [x] Optimize svg size
     -   [_] Store latest query and preferred units in localStorage
     -   [_] Dark mode media query
     -   [_] Screen size media query and formatting
