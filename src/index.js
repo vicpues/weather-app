@@ -16,14 +16,6 @@ window.addEventListener("load", windowLoadedHandler);
 dom.locationForm.addEventListener("submit", searchSubmitHandler);
 dom.unitSwitch.addEventListener("click", unitSwitchHandler);
 
-function cacheDom() {
-    return {
-        locationForm: document.querySelector("form#location-search"),
-        weatherCard: document.querySelector("article.weather-card"),
-        unitSwitch: document.querySelector("fieldset#units"),
-    };
-}
-
 // Event Handlers
 function windowLoadedHandler() {
     if (!storageAvailable) {
@@ -55,6 +47,14 @@ function unitSwitchHandler() {
 }
 
 // Utility functions
+function cacheDom() {
+    return {
+        locationForm: document.querySelector("form#location-search"),
+        weatherCard: document.querySelector("article.weather-card"),
+        unitSwitch: document.querySelector("fieldset#units"),
+    };
+}
+
 async function makeRequest() {
     try {
         const card = dom.weatherCard;
