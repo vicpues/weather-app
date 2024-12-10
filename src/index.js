@@ -49,13 +49,12 @@ function getUnitsValue() {
     return document.querySelector('input[name="units"]:checked').value;
 }
 
-function populateStorage(userUnits, userData) {
+function populateStorage(userUnits, userQuery) {
     if (!storageAvailable) {
         return;
     }
-    const dataString = JSON.stringify(userData);
     window.localStorage.units = userUnits;
-    window.localStorage.data = dataString;
+    window.localStorage.query = userQuery;
 }
 
 function checkLocalStorage() {
