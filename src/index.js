@@ -3,15 +3,16 @@ import getWeatherData from "./data-fetching";
 import updateWeatherCard from "./weather-card";
 
 // State variables
-let sessionUnits = getUnitsValue();
+let sessionUnits;
 let sessionData;
 let sessionQuery;
-let storageAvailable;
+let storageAvailable = checkLocalStorage();
 
 // Cache dom
 const dom = cacheDom();
 
 // Bind events
+window.addEventListener("load", windowLoadedHandler);
 dom.locationForm.addEventListener("submit", searchSubmitHandler);
 dom.unitSwitch.addEventListener("click", unitSwitchHandler);
 
@@ -23,13 +24,41 @@ function cacheDom() {
     };
 }
 
-/**@param {SubmitEvent} event */
-async function searchSubmitHandler(event) {
-    try {
-        event.preventDefault();
+// Event Handlers
+function windowLoadedHandler() {
+    if (!storageAvailable) {
+        return;
+    }
+    updateStateFromStorage();
+    const units = sessionUnits ? sessionUnits : "metric";
+    document.querySelector(`input[value="${units}"]`).checked = true;
+    if (sessionQuery) {
+        makeRequest();
+    }
+}
+
+function searchSubmitHandler(event) {
+    event.preventDefault();
+    const formData = new FormData(dom.locationForm);
+    sessionQuery = formData.get("query");
+    populateStorage();
+    makeRequest();
+}
+
+function unitSwitchHandler() {
+    sessionUnits = document.querySelector('input[name="units"]:checked').value;
+    populateStorage();
+    if (sessionData) {
         const card = dom.weatherCard;
-        const formData = new FormData(dom.locationForm);
-        sessionData = await getWeatherData(formData.get("query"));
+        updateWeatherCard(card, sessionData, sessionUnits);
+    }
+}
+
+// Utility functions
+async function makeRequest() {
+    try {
+        const card = dom.weatherCard;
+        sessionData = await getWeatherData(sessionQuery);
         updateWeatherCard(card, sessionData, sessionUnits);
     } catch (error) {
         const errorNotification = "There was a problem fetching weather data";
@@ -38,19 +67,7 @@ async function searchSubmitHandler(event) {
     }
 }
 
-function unitSwitchHandler() {
-    sessionUnits = getUnitsValue();
-    if (sessionData) {
-        const card = dom.weatherCard;
-        updateWeatherCard(card, sessionData, sessionUnits);
-    }
-}
-
-function getUnitsValue() {
-    return document.querySelector('input[name="units"]:checked').value;
-}
-
-function updateFromStorage() {
+function updateStateFromStorage() {
     if (!storageAvailable) {
         return;
     }
@@ -58,12 +75,16 @@ function updateFromStorage() {
     sessionQuery = window.localStorage.getItem("query");
 }
 
-function populateStorage(userUnits, userQuery) {
+function populateStorage() {
     if (!storageAvailable) {
         return;
     }
-    window.localStorage.units = userUnits;
-    window.localStorage.query = userQuery;
+    if (sessionUnits) {
+        window.localStorage.units = sessionUnits;
+    }
+    if (sessionQuery) {
+        window.localStorage.query = sessionQuery;
+    }
 }
 
 function checkLocalStorage() {
