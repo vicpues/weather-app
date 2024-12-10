@@ -3,8 +3,9 @@ import getWeatherData from "./data-fetching";
 import updateWeatherCard from "./weather-card";
 
 // State variables
-let units = getUnitsValue();
-let data;
+let sessionUnits = getUnitsValue();
+let sessionData;
+let storageAvailable;
 
 // Cache dom
 const dom = cacheDom();
@@ -27,8 +28,8 @@ async function searchSubmitHandler(event) {
         event.preventDefault();
         const card = dom.weatherCard;
         const formData = new FormData(dom.locationForm);
-        data = await getWeatherData(formData.get("query"));
-        updateWeatherCard(card, data, units);
+        sessionData = await getWeatherData(formData.get("query"));
+        updateWeatherCard(card, sessionData, sessionUnits);
     } catch (error) {
         const errorNotification = "There was a problem fetching weather data";
         console.error(errorNotification, error);
@@ -37,10 +38,10 @@ async function searchSubmitHandler(event) {
 }
 
 function unitSwitchHandler() {
-    units = getUnitsValue();
-    if (data) {
+    sessionUnits = getUnitsValue();
+    if (sessionData) {
         const card = dom.weatherCard;
-        updateWeatherCard(card, data, units);
+        updateWeatherCard(card, sessionData, sessionUnits);
     }
 }
 
@@ -48,7 +49,7 @@ function getUnitsValue() {
     return document.querySelector('input[name="units"]:checked').value;
 }
 
-function storageAvailable() {
+function checkLocalStorage() {
     let storage;
     try {
         storage = window.localStorage;
