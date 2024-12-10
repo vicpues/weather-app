@@ -5,6 +5,7 @@ import updateWeatherCard from "./weather-card";
 // State variables
 let sessionUnits = getUnitsValue();
 let sessionData;
+let sessionQuery;
 let storageAvailable;
 
 // Cache dom
@@ -47,6 +48,14 @@ function unitSwitchHandler() {
 
 function getUnitsValue() {
     return document.querySelector('input[name="units"]:checked').value;
+}
+
+function updateFromStorage() {
+    if (!storageAvailable) {
+        return;
+    }
+    sessionUnits = window.localStorage.getItem("units");
+    sessionQuery = window.localStorage.getItem("query");
 }
 
 function populateStorage(userUnits, userQuery) {
