@@ -49,6 +49,15 @@ function getUnitsValue() {
     return document.querySelector('input[name="units"]:checked').value;
 }
 
+function populateStorage(userUnits, userData) {
+    if (!storageAvailable) {
+        return;
+    }
+    const dataString = JSON.stringify(userData);
+    window.localStorage.units = userUnits;
+    window.localStorage.data = dataString;
+}
+
 function checkLocalStorage() {
     let storage;
     try {
