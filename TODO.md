@@ -28,7 +28,7 @@
 
     -   [x] Switch between ºC and ºF
     -   [x] Optimize svg size
-    -   [_] Store latest query and preferred units in localStorage
+    -   [x] Store latest query and preferred units in localStorage
     -   [_] Dark mode media query
     -   [_] Screen size media query and formatting
     -   [_] Test on different devices
