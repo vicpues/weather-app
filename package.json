@@ -7,7 +7,7 @@
         "prettier": "prettier . --write --cache --cache-location ./node_modules/.cache/prettier | grep -v \"unchanged\" | xargs",
         "stylelint": "stylelint --ignore-path .gitignore \"**/*.css\" --cache --cache-location ./node_modules/.cache/stylelint",
         "eslint": "eslint . --cache --cache-location ./node_modules/.cache/eslint",
-        "lint": "npm run prettier && npm run stylelint && npm run eslint",
+        "lint": "npm run prettier | npm run stylelint | npm run eslint",
         "dev": "webpack serve --open --config webpack.dev.js",
         "build": "webpack --mode=production --config webpack.common.js",
         "open": "open-cli ./dist/index.html",
