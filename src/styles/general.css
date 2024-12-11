@@ -139,12 +139,19 @@ header {
 /* Search form */
 #location-search {
   display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
   justify-content: center;
   align-items: center;
-  margin: 1rem 0 1rem;
+  margin: 1rem 1rem 1rem;
 
   label[for="query"] {
     margin-right: 0.6em;
+  }
+
+  .input-container {
+    width: max-content;
+    display: flex;
   }
 
   #query,
@@ -158,6 +165,7 @@ header {
     border-top-left-radius: 1000px;
     border-bottom-left-radius: 1000px;
     border: none;
+    width: clamp(11rem, 30vw, 16rem);
   }
 
   button {
