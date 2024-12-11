@@ -39,8 +39,8 @@ const US = "us";
 function cacheDom(cardElement) {
     const dom = {};
     const selectors = {
-        location: "h3.location-info",
-        time: "h4.time-info",
+        location: "h2.location-info",
+        time: "h3.time-info",
         picture: "img.card-picture",
         description: "figcaption.card-description",
         temperature: "li.temperature p.data-text",

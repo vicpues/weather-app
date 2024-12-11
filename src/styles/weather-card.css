@@ -24,7 +24,7 @@
   }
 
   .time-info {
-    margin-top: 0.5em;
+    margin-top: 1em;
     color: var(--grey-midtone);
   }
 
@@ -64,7 +64,7 @@
   }
 
   img.data-icon,
-  h4.data-title,
+  h3.data-title,
   p.data-text {
     display: inline;
   }
@@ -76,7 +76,7 @@
     margin-right: 0.4em;
   }
 
-  h4.data-title {
+  h3.data-title {
     flex: 6rem;
   }
 
