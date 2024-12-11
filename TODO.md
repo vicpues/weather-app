@@ -30,8 +30,8 @@
     -   [x] Optimize svg size
     -   [x] Store latest query and preferred units in localStorage
     -   [x] Dark mode media query
-    -   [_] Screen size media query and formatting
-    -   [_] Test on different devices
+    -   [x] Screen size media query and formatting
+    -   [x] Test on different devices
     -   [_] Optimise with lighthouse
 
 -   [_] Deployment / Documentation
