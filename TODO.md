@@ -34,9 +34,9 @@
     -   [x] Test on different devices
     -   [x] Optimise with lighthouse
 
--   [_] Deployment / Documentation
+-   [x] Deployment / Documentation
     -   [x] Deploy!
     -   [x] Link gh repo and profile at the bottom of the page
-    -   [_] Add description on github
-    -   [_] Add readme
-    -   [_] Link live view in readme
+    -   [x] Add description on github
+    -   [x] Add readme
+    -   [x] Link live view in readme
