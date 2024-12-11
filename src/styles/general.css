@@ -217,6 +217,7 @@ footer {
     --box-shadow-general: 0 0 1em #ffffff28;
     background-color: var(--grey-black);
     color: var(--grey-white);
+    scrollbar-color: var(--grey-dark) var(--grey-black);
   }
 
   header {
