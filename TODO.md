@@ -32,7 +32,7 @@
     -   [x] Dark mode media query
     -   [x] Screen size media query and formatting
     -   [x] Test on different devices
-    -   [_] Optimise with lighthouse
+    -   [x] Optimise with lighthouse
 
 -   [_] Deployment / Documentation
     -   [_] Deploy!
