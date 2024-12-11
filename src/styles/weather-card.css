@@ -36,6 +36,11 @@
     margin: 1em auto 1.5em;
   }
 
+  figcaption.card-description {
+    margin-top: 1rem;
+    color: var(--grey-midtone);
+  }
+
   .spin {
     transform-origin: center;
     animation: spin 1s linear infinite;
@@ -49,6 +54,8 @@
 
   li.data-item {
     display: flex;
+    flex-wrap: wrap;
+    column-gap: 0 0.5em;
     padding: 0;
 
     + li.data-item {
@@ -62,11 +69,6 @@
     display: inline;
   }
 
-  figcaption.card-description {
-    margin-top: 1rem;
-    color: var(--grey-midtone);
-  }
-
   img.data-icon {
     --size: 1.6em;
     height: var(--size);
@@ -74,8 +76,14 @@
     margin-right: 0.4em;
   }
 
+  h4.data-title {
+    flex: 6rem;
+  }
+
   p.data-text {
-    margin-left: auto;
+    flex: 6rem;
+    text-align: end;
+    text-wrap: nowrap;
   }
 }
 
