@@ -1,7 +1,7 @@
 .weather-card {
   width: 20rem;
   background-color: var(--grey-white);
-  box-shadow: 0 0 1em #0000002f;
+  box-shadow: var(--box-shadow-general);
   padding: 1.5em 1em;
   border-radius: 1em;
 
@@ -82,5 +82,22 @@
 @keyframes spin {
   to {
     transform: rotate(360deg);
+  }
+}
+
+/* Dark mode query */
+@media (prefers-color-scheme: dark) {
+  .weather-card {
+    background-color: var(--grey-dark);
+
+    .time-info,
+    figcaption.card-description {
+      color: var(--grey-light);
+    }
+
+    .data-icon {
+      filter: invert(93%) sepia(0%) saturate(1606%) hue-rotate(36deg)
+        brightness(83%) contrast(104%);
+    }
   }
 }
