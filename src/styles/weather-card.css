@@ -95,6 +95,10 @@
       color: var(--grey-light);
     }
 
+    .card-picture {
+      filter: brightness(80%);
+    }
+
     .data-icon {
       filter: invert(93%) sepia(0%) saturate(1606%) hue-rotate(36deg)
         brightness(83%) contrast(104%);
